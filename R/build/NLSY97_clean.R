@@ -4,7 +4,8 @@
 # vignette("rowwise")
 
 library(tidyverse)
-read_csv("~/Desktop/Causal Inference Data/default.csv") %>%
+library(here)
+read_csv(here("data/default.csv")) %>%
   
   # refused responses or already incarcerated --> NA
   # starts_with("E") are the columns that hold number of arrests per month of 2002
@@ -37,4 +38,4 @@ read_csv("~/Desktop/Causal Inference Data/default.csv") %>%
   select(race, gender, total_arrests) %>%
   
   # write to a csv
-  write_csv("~/Desktop/Causal Inference Data/NLSY97_clean.csv")
+  write_csv(here("data/NLSY97_clean.csv"))
