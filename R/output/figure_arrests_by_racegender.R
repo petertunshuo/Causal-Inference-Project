@@ -2,7 +2,8 @@
 # x axis. Refer to my presentation on graphing for more detail.
 
 library(ggplot2)
-NLSY97_clean <- read.csv("~/Desktop/Causal Inference Data/NLSY97_clean.csv")
+library(tidyverse)
+NLSY97_clean <- read.csv("/Causal-Inference-Project/data/NLSY97_clean.csv")
 NLSY97_clean%>%
   group_by(race, gender) %>%
   summarize(total_arrests = mean(total_arrests)) %>%
