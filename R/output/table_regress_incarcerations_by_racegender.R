@@ -17,7 +17,7 @@ stargazer(
   model,
   se = list(se),
   covariate.labels = covariate.labels,
-  dep.var.labels = "Arrests in 2002",
+  dep.var.labels = "Incarceration Rate, 2002",
   out = here("tables/regress_incarcerations_by_racegender.tex"),
   title = "Regression Output. Omitted category is Black Females.",
   label = "tab:regression"
