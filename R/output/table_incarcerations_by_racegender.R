@@ -8,17 +8,17 @@ read_csv(here("data/NLSY97_clean.csv")) %>%
   
   # summarize arrests by race and gender
   group_by(race, gender) %>%
-  summarize(total_incarcerations = mean(total_incarcerations)) %>%
+  summarize(incarcerated = mean(incarcerated)) %>%
   
   # pivot the values from race into columns
-  pivot_wider(names_from = race, values_from = total_incarcerations) %>%
+  pivot_wider(names_from = race, values_from = incarcerated) %>%
   
   # rename columns using snakecase
   rename_with(to_title_case) %>%
   
   # create the kable object. Requires booktabs and float LaTeX packages
   kbl(
-    caption = "Mean incarcerations in 2002 by Race and Gender",
+    caption = "Incarceration Rates in 2002 by Race and Gender",
     booktabs = TRUE,
     format = "latex",
     label = "tab:summarystats"

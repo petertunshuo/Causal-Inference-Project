@@ -6,14 +6,14 @@ library(tidyverse)
 NLSY97_clean <- read.csv(here("data/NLSY97_clean.csv"))
 NLSY97_clean%>%
   group_by(race, gender) %>%
-  summarize(total_incarcerations = mean(total_incarcerations)) %>%
-  ggplot(aes(race, total_incarcerations, fill = gender)) +
+  summarize(incarcerated = mean(incarcerated)) %>%
+  ggplot(aes(race, incarcerated, fill = gender)) +
   geom_bar(stat = "identity", position = "dodge") +
   labs(
     x = "Race", 
-    y = "Mean Incarcerations", 
+    y = "Incarceration Rates", 
     fill = "Gender",
-    title = "Mean Number of Incarcerations in 2002 by Race and Gender") +
+    title = "Incarceration Rates in 2002 by Race and Gender") +
   theme_minimal() +
   scale_fill_economist()
 

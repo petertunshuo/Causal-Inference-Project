@@ -12,7 +12,7 @@
 \usepackage{colortbl}
 \usepackage{xcolor}
 
-% these packages play with the spacing/margins of the document. Uncomment the commands on lines 16 and 17 to see what they do.4
+% these packages play with the spacing/margins of the document. Uncomment the commands on lines 16 and 17 to see what they do.44
 \usepackage{a4wide}
 \usepackage{setspace}
 \usepackage{geometry}
@@ -66,7 +66,7 @@ male incarcerations. Our findings can be better interpretted once visualized:
     \begin{center}
         \includegraphics[width=.85\textwidth]{incarcerations_by_racegender.png}
     \end{center}
-    \caption{Mean Number of Incarcerations in 2002 by Race and Gender (this is the LaTeX caption, not the ggplot title)}
+    \caption{Mean Number of Incarcerations in 2002 by Race and Gender}
     \label{fig:graph}
 \end{figure}
 
@@ -84,9 +84,10 @@ The results are as follows:
 
 \input{../tables/regress_incarcerations_by_racegender.tex}
 
+\newpage
 All coefficient values are significant at a 1\% level, except for the indicator variable for Mixed Race (NonHispanic) individuals, which is still significant at a 5\% level. The results show that there are significant differences amongst incarceration rate for individuals of different race and gender. Black women drawn from the sample are expected to have an incarceration rate of 15.5\%. On the other hand, if the random individual drawn from the sample were a man, he would be expected to have a 19.4\% higher incarceration rate than if he were female. Compared to black women, being any other race tends to have lower expected incarceration rates, with 15.9\% lower for Hispanic, 17.4\% lower for Mixed Race, and 18.9\% lower for NonBlack/NonHispanic individuals.
 
-\newpage
+
 
 \section{Conclusion}
 

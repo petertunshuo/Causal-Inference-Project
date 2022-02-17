@@ -2,7 +2,7 @@
 
 model <- 
   read_csv(here("data/NLSY97_clean.csv")) %>%
-  lm(total_incarcerations ~ race + gender, data = .)
+  lm(incarcerated ~ race + gender, data = .)
 
 # Here we supply our own standard errors b/c we want to 
 # use heteroskedasticity-robust errors.
