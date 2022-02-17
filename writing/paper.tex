@@ -1,5 +1,7 @@
 \documentclass{article}
 
+
+
 % these packages let you do math
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -10,13 +12,13 @@
 \usepackage{colortbl}
 \usepackage{xcolor}
 
-% these packages play with the spacing/margins of the document. Uncomment the commands on lines 16 and 17 to see what they do.
+% these packages play with the spacing/margins of the document. Uncomment the commands on lines 16 and 17 to see what they do.4
 \usepackage{a4wide}
 \usepackage{setspace}
 \usepackage{geometry}
 \usepackage{parskip}
-%\doublespacing
-%\geometry{margin=1.5in}
+\doublespacing
+\geometry{margin=1.5in}
 
 % this package helps us with including images. Setting the graphics path makes it easier to refer to things in the \includegraphics command.
 \usepackage{graphicx}
@@ -30,10 +32,12 @@
     urlcolor=blue
 }
 
+
 % set the author, title, and date of the document. \maketitle adds it to the document.
 \author{Peter (Tun-Shuo) Lee }
 \title{Analysis of 2002 Incarceration data from NLSY97}
 \date{Sping 2022}
+
 
 \begin{document}
 \maketitle
@@ -43,13 +47,12 @@
 Systematic inequity between racial groups in the US has always been a widely debated topic. Differences in employment, education, income, have placed 
 many families in a disadvantage that spans across generations. Amongst the racial treatment discussions, perhaps one of most contentious is of the criminal 
 justice system and whether their representatives judge the cases differently based on the defendants' ethnicity. This paper will analyze the racial composition 
-of the \texttt{National Longitudinal Study of Youth}'s data from 2002, in particular, the racial and gender distribution of the incarcerated. While this short analysis aims not to provide
+of the \texttt{National Longitudinal Study of Youth (NLSY)}'s data from 2002, in particular, the racial and gender distribution of the incarcerated. While this short analysis aims not to provide
 a definitive conclusion to the ongoing debate, it does provide quantitative evidence on the difference (or lack there of) of incarcerations in youth across race and gender.  
 
 \newpage
 
 \section{Analysis}
-
 The data set NLSY97 included 8621 individuals' gender and race information, as well as whether they were incarcerated during each month in 2002. 
 By first summing the number of months, and dividing by the total number of individuals within each gender and race group, we essentially find the 
 rate of incarceration of the youths for each race and gender. The data is summarized in the table below: 
@@ -73,14 +76,24 @@ are higher than for women of all other races, and yet, there are no recorded inc
 
 \section{Regression}
 
-I regressed the incarceration rate on categorical variables representing race and gender. I omitted Black Females to avoid multicolinearity. 
-
+We regressed the incarceration rate on categorical variables representing race and gender. We omitted Black Females to avoid multicolinearity. 
 $$
-    incarceration rate = \beta_{0} + \beta_{1}Hispanic + \beta_{2}Mixed Race (NonHispanic) + \beta_{3} NonBlack/ NonHispanic + \beta_{4} Male + \varepsilon
+incarceration rate = \beta_{0} + \beta_{1}Hispanic + \beta_{2}Mixed Race (NonHispanic) + \beta_{3} NonBlack/ NonHispanic + \beta_{4} Male + \varepsilon
 $$
-
 The results are as follows: 
 
 \input{../tables/regress_incarcerations_by_racegender.tex}
+
+All coefficient values are significant at a 1\% level, except for the indicator variable for Mixed Race (NonHispanic) individuals, which is still significant at a 5\% level. The results show that there are significant differences amongst incarceration rate for individuals of different race and gender. Black women drawn from the sample are expected to have an incarceration rate of 15.5\%. On the other hand, if the random individual drawn from the sample were a man, he would be expected to have a 19.4\% higher incarceration rate than if he were female. Compared to black women, being any other race tends to have lower expected incarceration rates, with 15.9\% lower for Hispanic, 17.4\% lower for Mixed Race, and 18.9\% lower for NonBlack/NonHispanic individuals.
+
+\newpage
+
+\section{Conclusion}
+
+The results from the data shows that there exists differences in incarceration rates based on gender and race. In particular, men are expected to have higher incarceration rates, and black individuals have the highest incarceration rates of all the other races; however, there only exists correlation. The paper's evidence cannot support, nor deny the existence of race based discrimination in the American Judicial System. 
+
+The analysis solely provides qualitative evidence, and illustrates the simple fact that there exists a difference. Since variables like income, family size, education levels, drug use, and other affiliated variables are omitted, the estimated coefficients may suffer from omitted variable bias, making attributing the difference in incarceration rates to gender and race. 
+
+More insights may be revealed when socioeconomic and economic factors are considered. As low education rates, and access to drugs often drive an individual to pursue illegal activities, I suspect their effects would reduce the differences amongst individuals of different race. This IS after all a debate rooted in the socioeconomic and economic differences between races, and those same factors would still contribute to the higher incarceration rate for certain races even when the court were truly impartial. The evidence of this paper is not able to differentiate between higher incarceration rates purely due to biased a judicial system, and due to the actual just rulings for crimes that are disporportionally committed more by members of certain races. Further studies and expansions on the current methodology are required to answer the question. These future studies may also identify opporutnities and alternative improvements to the incarceration of teens other than incarceration such as improved access to education, food security, and healthcare.
 
 \end{document}
